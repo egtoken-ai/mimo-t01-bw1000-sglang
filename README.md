@@ -11,7 +11,6 @@
 相关获取地址：
 
 - 权重下载（超算互联网 AI 社区）：https://www.scnet.cn/ui/aihub/models/sugon_scnet/MiMo-V2.6-Distill-Qwen-9B/files/tree/main
-- 权重下载（上游发布页）：https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
 - 镜像：`UNVERIFIED`（容器内未暴露 registry tag，提交前按第 8 节从 SCNet 镜像库回填）
 - 提交仓库：https://github.com/egtoken-ai/mimo-t01-bw1000-sglang
 

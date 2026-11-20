@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+server.pid
+sglang_storage/
+submission/dev-evidence/
+submission/*.tar.gz
+submission/*.sha256

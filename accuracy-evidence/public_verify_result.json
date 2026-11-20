@@ -1,0 +1,21 @@
+{
+  "status": "provisional",
+  "official_acceptance": false,
+  "thinking": true,
+  "max_tokens": 1024,
+  "sample_size_per_metric": 64,
+  "metrics": {
+    "gsm8k": {
+      "correct": 57,
+      "total": 64,
+      "accuracy_pct": 89.06
+    },
+    "mmlu": {
+      "correct": 54,
+      "total": 64,
+      "accuracy_pct": 84.38
+    }
+  },
+  "evidence": "public_verify_items.jsonl",
+  "note": "Public datasets only; official baseline and fixed contest subsets are still required."
+}

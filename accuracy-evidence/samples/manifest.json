@@ -1,0 +1,32 @@
+{
+  "provisional": true,
+  "seed": 20261120,
+  "gsm8k": {
+    "source": "https://raw.githubusercontent.com/openai/grade-school-math/master/grade_school_math/data/test.jsonl",
+    "full_sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+    "sample": "data/public/gsm8k_24.jsonl",
+    "count": 24
+  },
+  "mmlu": {
+    "source": "https://huggingface.co/datasets/cais/mmlu/resolve/main/all/test-00000-of-00001.parquet",
+    "full_sha256": "74a41822ce7d3def56e1682f958469c04642a5336a5ce912fa375fdb90fb25d7",
+    "sample": "data/public/mmlu_24.jsonl",
+    "count": 24,
+    "strategy": "one deterministic item from each of 24 randomly selected subjects"
+  },
+  "runs": {
+    "sample_24": {
+      "seed": 20261120,
+      "gsm8k": "data/public/gsm8k_24.jsonl",
+      "mmlu": "data/public/mmlu_24.jsonl",
+      "result": "public_verify_result_24.json"
+    },
+    "sample_64": {
+      "seed": 20261120,
+      "gsm8k": "data/public/gsm8k_64.jsonl",
+      "mmlu": "data/public/mmlu_64.jsonl",
+      "mmlu_subjects": 57,
+      "result": "public_verify_result.json"
+    }
+  }
+}

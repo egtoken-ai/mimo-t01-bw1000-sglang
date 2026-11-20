@@ -1,0 +1,44 @@
+MiMo T01 Submission Manifest
+Generated: 2026-11-20
+
+Status: project complete under owner-approved public-data acceptance.
+- Provisional public accuracy: 24+24 -> GSM8K 23/24, MMLU 20/24; 64+64 -> GSM8K 57/64, MMLU 54/64; repeated run identical aggregate and 0/128 correctness changes
+- SGLang serving: verified
+- Single-turn/multi-turn/streaming/reasoning smoke: passed
+- Performance matrix: 6 tiers x 2 rounds, 12/12 runs exit 0
+- Official GSM8K/MMLU baseline: unavailable; not claimed as an official contest result
+- Image tag: UNVERIFIED inside SCNet notebook
+
+Package contents:
+  README.md, env.sh, env_check.sh, run.sh, smoke.sh, verify.py, bench.sh
+  baselines/ (README.md only; official baseline JSON unavailable)
+  data/ (README.md only; official fixed subsets unavailable)
+  bench/ (round1/round2 jsonl, 12 tier logs, status.tsv, summary.md)
+  patches/ (empty; .gitkeep)
+  env.log, server.log, smoke.log, verify_result.json
+  accuracy-evidence/ (provisional public-data GSM8K/MMLU runs, fixed
+    seed-20261120 samples, per-item responses, public_verify.py)
+
+Omitted on purpose:
+  requirements-extra.txt - no extra packages are installed
+
+Required pre-submission input:
+- baselines/XiaomiMiMo__MiMo-V2.6-Distill-Qwen-9B.json
+- the fixed contest subsets referenced by that baseline, placed under data/
+
+Verification sequence:
+  bash run.sh
+  bash env_check.sh
+  bash smoke.sh
+  source ./env.sh && python verify.py
+  bash bench.sh
+
+Evidence:
+- env.log / server.log: runtime and service command
+- smoke.log: API and semantic checks
+- verify_result.json: blocked official accuracy result
+- bench/status.tsv: 12 successful benchmark invocations
+- bench/round1.jsonl / bench/round2.jsonl: raw benchmark records
+- bench/summary.md: measured second-round table
+- accuracy-evidence/: provisional public-data results only; not an
+  official contest result (official baseline unavailable)

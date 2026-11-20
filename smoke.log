@@ -1,0 +1,13 @@
+== health
+HTTP 200
+== /v1/models
+{"object": "list", "data": [{"id": "MiMo-V2.6-Distill-Qwen-9B", "object": "model", "created": 1795162620, "owned_by": "sglang", "root": "MiMo-V2.6-Distill-Qwen-9B", "parent": null, "max_model_len": 131072}]}
+== /metrics
+HTTP 200
+== single-turn
+{"id": "afb65833f29b4e5591697e0d9158140b", "object": "chat.completion", "created": 1795162620, "model": "MiMo-V2.6-Distill-Qwen-9B", "choices": [{"index": 0, "message": {"role": "assistant", "content": "42", "reasoning_content": null, "tool_calls": null}, "logprobs": null, "finish_reason": "stop", "matched_stop": 248046}], "usage": {"prompt_tokens": 24, "total_tokens": 29, "completion_tokens": 5, "prompt_tokens_details": null, "reasoning_tokens": 2}, "metadata": {"weight_version": "default"}}
+== multi-turn
+{"id": "a2bec5cd80f44df6825ff38680e74aa0", "object": "chat.completion", "created": 1795162620, "model": "MiMo-V2.6-Distill-Qwen-9B", "choices": [{"index": 0, "message": {"role": "assistant", "content": "小海。", "reasoning_content": null, "tool_calls": null}, "logprobs": null, "finish_reason": "stop", "matched_stop": 248046}], "usage": {"prompt_tokens": 34, "total_tokens": 40, "completion_tokens": 6, "prompt_tokens_details": null, "reasoning_tokens": 2}, "metadata": {"weight_version": "default"}}
+== streaming
+{"content": "你好！有什么我可以帮你的吗？", "reasoning_content_present": false, "terminated": true}
+smoke OK

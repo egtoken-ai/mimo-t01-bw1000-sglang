@@ -11,7 +11,7 @@
 相关获取地址：
 
 - 权重下载（上游发布页）：https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-- 镜像：`【待填：SCNet 镜像仓库完整地址:tag】`（容器内未暴露 registry tag，见第 2 节说明）
+- 镜像：`UNVERIFIED`（容器内未暴露 registry tag，提交前按第 8 节从 SCNet 镜像库回填）
 - 提交仓库：https://github.com/egtoken-ai/mimo-t01-bw1000-sglang
 
 参考文档：
@@ -43,7 +43,7 @@ bash bench.sh
 
 ## 2. 验证环境
 
-镜像：`【待填：SCNet 镜像仓库完整地址:tag】`。本次运行环境为超算互联网 Notebook 容器，容器内没有暴露 registry tag，因此 `env.sh` 与 `env.log` 中该字段记为 `UNVERIFIED`，提交前需按镜像库页面回填。
+镜像：`UNVERIFIED`。本次运行环境为超算互联网 Notebook 容器，容器内没有暴露 registry tag，因此 `env.sh` 与 `env.log` 中该字段记为 `UNVERIFIED`；提交前需从 SCNet 镜像库页面把完整地址回填到 `env.sh` 的 `IMAGE` 与本节。
 
 重点组件（取自 `env.log`）：
 
@@ -90,10 +90,10 @@ HCU     Temp     AvgPwr     Perf     PwrCap     VRAM%      HCU%      Mode
 
 | 项 | 值 |
 | --- | --- |
-| 区域 | `【待填：控制台实例详情页】` |
+| 区域 | 未记录（控制台实例详情页未截图保存） |
 | Notebook 规格 | 15 vCPU / 59 GB 内存 / 系统盘与 `/public/home` 文件存储（取自容器环境变量 `NOTEBOOK_CPU_NUM=15`、`NOTEBOOK_RAM_SIZE=59GB`） |
 | 加速卡与显存 | `BW1000` × 1；64 GB（`NOTEBOOK_ACCELERATOR_MEMORY=64GB`，`hy-smi` 报告 63.984 GiB） |
-| 开发镜像 | `【待填：社区镜像名称与 tag】` |
+| 开发镜像 | `UNVERIFIED`（容器内未暴露 tag，与第 2 节镜像字段同源） |
 | 模型获取方式 | AI 社区模型库克隆到 `/public/home/maxkonger/SothisAI/model/...` |
 | 服务映射 | 本次验证直接使用容器内 `127.0.0.1:30000`，未配置对外代理映射 |
 | 平台证据 | `platform/`（本次未随包提交） |
@@ -289,7 +289,7 @@ python3 -m sglang.bench_serving \
 
 ## 8. 注意事项
 
-- **镜像 tag 与平台信息待回填**：容器内没有暴露 registry tag，`env.sh`、`env.log` 与本文第 2 节的镜像字段均为占位；区域、镜像名称和 `platform/` 截图需在提交前从控制台补齐。这是当前提交已知的材料缺口。
+- **镜像 tag 与平台截图待补**：容器内没有暴露 registry tag，`env.sh`、`env.log` 与本文第 2 节的镜像字段记为 `UNVERIFIED`，区域一项记为未记录。回填方法：在 SCNet 控制台镜像库找到本次使用的镜像，取得 `仓库地址:tag` 后更新 `env.sh` 的 `IMAGE` 并重跑 `bash env_check.sh` 刷新 `env.log`；同时补齐 `platform/` 下的实例创建页、环境自检与模型管理截图。这是当前提交已知的材料缺口，不影响第 4 至 7 节的复现命令与数据。
 - **官方精度未验收**：官方基线文件与其固定 GSM8K/MMLU 子集未下发，`verify.py` 返回 blocked，`verify_result.json` 保持 blocked 原文。取得官方文件后放入 `baselines/` 与 `data/` 再跑即可，脚本无需修改。第 6.1 节是公开数据补充验证，不参与官方判定。
 - **不支持的负载**：本次未覆盖超过 128 的路由并发、超过 131072 的上下文，以及 TP>1 的切分部署。131072 是部署配置值，模型 config 上限为 262144，未在此卡上验证更长上下文。
 - **修改的模型参数**：无。`config.json`、`generation_config.json`、tokenizer、chat template 均未改动。

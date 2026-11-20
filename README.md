@@ -10,6 +10,7 @@
 
 相关获取地址：
 
+- 权重下载（超算互联网 AI 社区）：https://www.scnet.cn/ui/aihub/models/sugon_scnet/MiMo-V2.6-Distill-Qwen-9B/files/tree/main
 - 权重下载（上游发布页）：https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
 - 镜像：`UNVERIFIED`（容器内未暴露 registry tag，提交前按第 8 节从 SCNet 镜像库回填）
 - 提交仓库：https://github.com/egtoken-ai/mimo-t01-bw1000-sglang
@@ -94,7 +95,7 @@ HCU     Temp     AvgPwr     Perf     PwrCap     VRAM%      HCU%      Mode
 | Notebook 规格 | 15 vCPU / 59 GB 内存 / 系统盘与 `/public/home` 文件存储（取自容器环境变量 `NOTEBOOK_CPU_NUM=15`、`NOTEBOOK_RAM_SIZE=59GB`） |
 | 加速卡与显存 | `BW1000` × 1；64 GB（`NOTEBOOK_ACCELERATOR_MEMORY=64GB`，`hy-smi` 报告 63.984 GiB） |
 | 开发镜像 | `UNVERIFIED`（容器内未暴露 tag，与第 2 节镜像字段同源） |
-| 模型获取方式 | AI 社区模型库克隆到 `/public/home/maxkonger/SothisAI/model/...` |
+| 模型获取方式 | AI 社区模型库 `sugon_scnet/MiMo-V2.6-Distill-Qwen-9B` 克隆到 `/public/home/maxkonger/SothisAI/model/Aihub/MiMo-V2.6-Distill-Qwen-9B/main/MiMo-V2.6-Distill-Qwen-9B` |
 | 服务映射 | 本次验证直接使用容器内 `127.0.0.1:30000`，未配置对外代理映射 |
 | 平台证据 | `platform/`（本次未随包提交） |
 
